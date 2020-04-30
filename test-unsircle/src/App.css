@@ -1,3 +1,51 @@
+.form{    
+  margin: 50px;
+  background-color: #00805c2b;
+  padding: 50px;
+  border-radius: 47px;
+}
+.form-group{
+  margin: 20px;
+  position: relative;
+
+}
+.form-label{
+  padding-left: 5px;
+}
+.form-control{
+  height:50px;
+  border-radius: 20px;
+  color: none;
+}
 .registerPanel {
   justify-content: center;
+}
+.buttonForm{
+  color: white;
+  border: none;
+  background-color: #2C3539;
+  border-radius: 10px;
+  padding: 12px;
+  padding-left: 121px;
+  padding-right: 121px;
+  margin: 10px;
+}
+.register-link{
+  margin-top: 27px;
+  margin-bottom: -28px;
+  font-size: 18px;
+}
+.forgotPassword{
+  padding-left: '5px';
+  font-size: '14px'
+}
+.formRegister{
+  margin: 30px;
+  background-color: #87baac2b;
+  padding: 50px;
+  border-radius: 47px;
+}
+.forgotPassword{
+  margin-top: 50px;
+  padding: 82px;
 }

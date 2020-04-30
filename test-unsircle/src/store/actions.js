@@ -90,6 +90,7 @@ export const forgotPassword = (value) => {
         })
             .then(({ data }) => {
                 console.log(data)
+                dispatch(setPage('login'))
             })
             .catch(({ response }) => {
                 console.log('response')

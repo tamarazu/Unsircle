@@ -1,14 +1,17 @@
 import React, { useState} from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import { Row, Col, Form, Button } from 'react-bootstrap'
-import landingPagePicture from '../assets/landingPage.svg'
 import { registerForm } from '../store/actions'
+
+import landingPagePicture from '../assets/landingPage.svg'
+import Loading from '../components/Loading'
 
 function RegisterPanel () {
     const dispatch = useDispatch()
     const history = useHistory()
     const error = useSelector(state => state.reducers.error)
+    const loading = useSelector(state => state.reducers.loading)
     const page = useSelector(state => state.reducers.page)
 
     const [full_name, setFullName] = useState('')
@@ -35,16 +38,20 @@ function RegisterPanel () {
     }
 
     if (page) history.push('/login')
+    if (loading) return <Loading/>
     return (
         <div>
+            <div className="d-flex justify-content-center">
+                <img src="https://i0.wp.com/unsircle.id/wp-content/uploads/2020/01/Unsircle-logo-png.png?fit=1079%2C300&ssl=1" alt="RegisterPicture" style={{width: '300px', paddingTop: '20px'}}/>
+            </div>
            <Row  className="m-3">
                <Col className="d-flex justify-content-center align-items-center">
-                    <img src={landingPagePicture} alt="RegisterPicture"/>
+                        <img src={landingPagePicture} alt="RegisterPicture"/>
                </Col>
-               <Col className="container">
+               <Col className="container formRegister">
                    <h1 style={{textAlign: "center"}}>Register</h1>
 
-                   {error && <p>{error}</p>}
+                   {error && <p style={{textAlign: "center", color: 'red'}}>{error}</p>}
 
                     <Form  
                         onSubmit={(event) => registerUser(event)}
@@ -94,10 +101,24 @@ function RegisterPanel () {
                                 placeholder="Phone Number" 
                             />
                         </Form.Group>
-
-                        <Button variant="primary" type="submit">
-                            Submit
-                        </Button>
+                        <div className="d-flex justify-content-center">
+                            <Button 
+                                className="buttonForm"
+                                type="submit"
+                            >
+                                Submit
+                            </Button>
+                        </div>
+                        <div className="d-flex justify-content-center register-link">
+                        <small style={{paddingLeft: '5px', paddingTop: '0px', textAlign: "center"}}>
+                            Already a member? 
+                            <Link
+                                to="/login"
+                            >
+                                  Login Now
+                            </Link>
+                        </small>
+                    </div>
                     </Form>
                </Col>
            </Row>

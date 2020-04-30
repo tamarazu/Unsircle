@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useHistory } from 'react-router-dom'
+import { Row, Col } from 'react-bootstrap'
 
 import NavbarPanel from '../components/NavbarPanel'
 import homePicture from '../assets/homePicture.svg'
@@ -11,9 +12,13 @@ export default function Home () {
     return (
         <div>
             <NavbarPanel/>
-            <div className="d-flex justify-content-center">
-                <img src={homePicture} alt="controlPicture"/>
-                <h1>INi HOME</h1>
+            <div>
+                <Row style={{justifyContent: "center"}}>
+                    <Col >
+                        <h1>Welcome to Unsircle</h1>
+                        <img src={homePicture} alt="controlPicture"/>
+                    </Col>
+                </Row>
             </div>
         </div>
     )

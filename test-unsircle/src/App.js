@@ -5,7 +5,7 @@ import GuardedRoutes from './components/GuardedRoutes'
 
 function App() {
   return (
-    <div className="">
+    <div style={{fontFamily: 'Manrope'}}>
       <GuardedRoutes/>
     </div>
   );
