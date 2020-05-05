@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useHistory } from 'react-router-dom'
 import { Row, Col, Form, Button, Modal } from 'react-bootstrap'
-import { login, setPage } from '../store/actions'
+import { login, setPage, setError } from '../store/actions'
 
 import loginPicture from '../assets/login.svg'
 import Loading from '../components/Loading'
@@ -19,6 +19,7 @@ function LoginPanel () {
 
     useEffect(() => {
         dispatch(setPage(''))
+        dispatch(setError(null))
     }, [])
 
     const loginSubmit = (event) => {

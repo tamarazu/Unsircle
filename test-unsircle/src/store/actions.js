@@ -89,14 +89,15 @@ export const forgotPassword = (value) => {
             data: value
         })
             .then(({ data }) => {
-                console.log(data)
+                // console.log(data)
                 dispatch(setPage('login'))
             })
             .catch(({ response }) => {
                 console.log('response')
+                dispatch(setError('cannot do this action'))
             })
             .finally(() => {
-                setLoading(false)
+                dispatch(setLoading(false))
             })
     }
 }
